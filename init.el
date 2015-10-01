@@ -18,6 +18,7 @@
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
+     eyebrowse
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -177,6 +178,22 @@ layers configuration."
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
 (desktop-save-mode 1)
+
+;; copy whole line without selection
+;; http://emacs-fu.blogspot.com.au/2009/11/copying-lines-without-selecting-them.html
+(defadvice kill-ring-save (before slick-copy activate compile) "When called
+  interactively with no active region, copy a single line instead."
+    (interactive (if mark-active (list (region-beginning) (region-end)) (message
+        "Copied line") (list (line-beginning-position) (line-beginning-position
+    2)))))
+
+(defadvice kill-region (before slick-cut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
