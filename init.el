@@ -27,6 +27,8 @@
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; syntax-checking
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar t)
      version-control
      )
    ;; List of additional packages that will be installed without being
@@ -123,7 +125,7 @@ before layers configuration."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'.
@@ -154,9 +156,11 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+  (setq-default evil-escape-key-sequence "jf")
   )
 
 (defun dotspacemacs/config ()
+  (global-linum-mode t)
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -172,6 +176,7 @@ layers configuration."
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 
+(desktop-save-mode 1)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
