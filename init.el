@@ -194,6 +194,31 @@ layers configuration."
      (list (line-beginning-position)
            (line-beginning-position 2)))))
 
+(defun Open ()
+  "Show current file in desktop (OS's file manager).
+URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
+Version 2015-06-12"
+  (interactive)
+  (cond
+   ((string-equal system-type "windows-nt")
+    (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
+   ((string-equal system-type "darwin") (shell-command "open ."))
+   ((string-equal system-type "gnu/linux")
+    (let ((process-connection-type nil)) (start-process "" nil "xdg-open" "."))
+    ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. ⁖ with nautilus
+    )))
+
+;; insert current time
+;; source: http://emacswiki.org/emacs/InsertingTodaysDate
+(defun nnow ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+
+;; insert today date
+(defun ddate ()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d")))
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
