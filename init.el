@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -k*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -17,7 +17,14 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior nil
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-private-snippets-directory nil)
      eyebrowse
      ;; better-defaults
      emacs-lisp
@@ -160,8 +167,21 @@ before layers configuration."
   (setq-default evil-escape-key-sequence "jf")
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   (global-linum-mode t)
+  (global-company-mode t)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '( (perl . t)         
+      (ruby . t)
+      (sh . t)
+      (python . t)
+      (dot . t)
+      (emacs-lisp . t)   
+      ))
+  (setq org-startup-with-inline-images t)
+  ;; syntax highlight
+  (setq org-src-fontify-natively t)
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -173,6 +193,11 @@ layers configuration."
   (let ((filename (if (equal major-mode 'dired-mode)
                       default-directory
                     (buffer-file-name))))
+
+    ;; (let a (buffer-name))
+    ;; (message a)
+    (let ext (file-name-extension filename))
+    (message ext)
     (when filename
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard." filename))))
@@ -234,10 +259,12 @@ Version 2015-06-12"
  '(package-selected-packages
    (quote
     (helm-c-yasnippet company-statistics company-quickhelp company auto-yasnippet ac-ispell evil-snipe spray spacemacs-theme define-word which-key quelpa macrostep elisp-slime-nav diff-hl window-numbering volatile-highlights vi-tilde-fringe smooth-scrolling rfringe rainbow-delimiters powerline popup pcre2el paradox page-break-lines open-junk-file neotree move-text linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete hl-anything highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag guide-key-tip google-translate golden-ratio gh-md fringe-helper flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-terminal-cursor-changer evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-lisp-state evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link ace-jump-mode avy anzu iedit smartparens highlight flx pos-tip guide-key s popwin projectile helm helm-core async parent-mode spinner pkg-info epl evil-leader evil use-package bind-key dash)))
- '(ring-bell-function (quote ignore)))
+ '(ring-bell-function (quote ignore) t)
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
