@@ -255,7 +255,10 @@ Version 2015-04-23"
   (let ((ξabbrevCode
          (ido-completing-read "Open:" (mapcar (lambda (ξx) (car ξx)) hot-filelist))))
     (find-file (cdr (assoc ξabbrevCode hot-filelist)))))
+
 (load "~/dotspacemacs/keys.el")
+(load "~/dotspacemacs/abbrev")
+(load "~/dotspacemacs/shell_abbrev")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
