@@ -243,6 +243,18 @@ Version 2015-06-12"
 (defun ddate ()
   (interactive)
   (insert (format-time-string "%Y-%m-%d")))
+(require 'ido) ; part of emacs
+
+
+(load "~/dotspacemacs/hot-filelist")
+(defun xah-open-file-fast ()
+  "Prompt to open a file from `hot-filelist'.
+URL `http://ergoemacs.org/emacs/emacs_hotkey_open_file_fast.html'
+Version 2015-04-23"
+  (interactive)
+  (let ((ξabbrevCode
+         (ido-completing-read "Open:" (mapcar (lambda (ξx) (car ξx)) hot-filelist))))
+    (find-file (cdr (assoc ξabbrevCode hot-filelist)))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
