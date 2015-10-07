@@ -8,6 +8,7 @@
 
     ;; email
     ("gm" "showgood21@gmail.com")
+    ("atm" "at the moment")
 
     ;; computing tech
     ("8wp" "Wikipedia")
