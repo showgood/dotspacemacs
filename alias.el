@@ -13,3 +13,4 @@
 (defalias 'ees 'eshell)
 (defalias 'here 'Open)
 (defalias 'rof 'recentf-open-files)
+(defalias 'rc 'xah-run-current-file)

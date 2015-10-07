@@ -260,6 +260,9 @@ Version 2015-04-23"
 (load "~/dotspacemacs/abbrev")
 (load "~/dotspacemacs/shell_abbrev")
 (load "~/dotspacemacs/alias")
+(load "~/dotspacemacs/runCurrentFile")
+(load "~/dotspacemacs/functions")
+(load "~/dotspacemacs/windows")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
