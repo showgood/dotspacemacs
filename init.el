@@ -238,12 +238,12 @@ Version 2015-06-12"
 ;; source: http://emacswiki.org/emacs/InsertingTodaysDate
 (defun nnow ()
   (interactive)
-  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+  (insert (format-time-string "%Y-%b-%d %H:%M:%S")))
 
 ;; insert today date
 (defun ddate ()
   (interactive)
-  (insert (format-time-string "%Y-%m-%d")))
+  (insert (format-time-string "%Y-%b-%d")))
 (require 'ido) ; part of emacs
 
 

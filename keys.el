@@ -2,3 +2,5 @@
 (global-set-key (kbd "<f9>") 'xah-shell-commands) ; F9 to open a list of shell abbreviation
 (global-set-key (kbd "<f7>") 'execute-extended-command); F7 to do M-x
 (global-set-key  (kbd "<f6>") (lambda () (interactive) (list-matching-lines (current-word))))
+(global-set-key (kbd "\C-c +") 'evil-numbers/inc-at-pt); mimic C-a in vim
+(global-set-key (kbd "\C-c -") 'evil-numbers/dec-at-pt); mimic C-x in vim
