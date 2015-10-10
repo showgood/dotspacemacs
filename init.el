@@ -174,6 +174,7 @@ before layers configuration."
    'org-babel-load-languages
    '( (perl . t)         
       (ruby . t)
+      (c . t)
       (sh . t)
       (python . t)
       (dot . t)
