@@ -170,6 +170,8 @@ before layers configuration."
 (defun dotspacemacs/user-config ()
   (global-linum-mode t)
   (global-company-mode t)
+  (setq org-src-fontify-natively t)
+  (setq org-startup-with-inline-images t)
   (org-babel-do-load-languages
    'org-babel-load-languages
    '( (perl . t)         
@@ -180,9 +182,7 @@ before layers configuration."
       (dot . t)
       (emacs-lisp . t)   
       ))
-  (setq org-startup-with-inline-images t)
   ;; syntax highlight
-  (setq org-src-fontify-natively t)
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."

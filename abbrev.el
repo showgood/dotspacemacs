@@ -10,6 +10,9 @@
     ("gm" "showgood21@gmail.com")
     ("atm" "at the moment")
 
+    ;; coding
+    ("ustd", "using namespace std;")
+
     ;; computing tech
     ("8wp" "Wikipedia")
     ("8ms" "Microsoft")
@@ -18,7 +21,6 @@
     ("8msw" "Microsoft Windows")
     ("8win" "Windows")
     ("8ie" "Internet Explorer")
-    ("8ahk" "AutoHotkey")
 
     ;; normal english words
     ("8alt" "alternative")
@@ -32,6 +34,7 @@
     ("8var" "variable")
     ("8ev" "environment variable")
     ("8cp" "computer")
+    ("sth", "something")
 
     ;; emacs regex
     ("8d" "\\([0-9]+?\\)")
