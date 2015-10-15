@@ -28,7 +28,7 @@
      eyebrowse
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -172,11 +172,15 @@ before layers configuration."
   (global-company-mode t)
   (setq org-src-fontify-natively t)
   (setq org-startup-with-inline-images t)
+
+  (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
+  (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
   (org-babel-do-load-languages
    'org-babel-load-languages
    '( (perl . t)         
       (ruby . t)
-      (c . t)
+      (plantuml . t)
+      (ditaa . t)
       (sh . t)
       (python . t)
       (dot . t)
@@ -264,6 +268,7 @@ Version 2015-04-23"
 (load "~/dotspacemacs/runCurrentFile")
 (load "~/dotspacemacs/functions")
 (load "~/dotspacemacs/windows")
+(load "~/dotspacemacs/switch-window.el")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables

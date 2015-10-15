@@ -8,3 +8,5 @@
 (global-set-key (kbd "\C-c -") 'evil-numbers/dec-at-pt); mimic C-x in vim
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(require 'switch-window)
+(global-set-key (kbd "C-x o") 'switch-window)
