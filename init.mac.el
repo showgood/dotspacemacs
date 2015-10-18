@@ -172,6 +172,7 @@ before layers configuration."
   (global-company-mode t)
   (setq org-src-fontify-natively t)
   (setq org-startup-with-inline-images t)
+  (setq org-agenda-files (list "~/myOrg/gtd/"))
 
   (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
   (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
@@ -179,6 +180,7 @@ before layers configuration."
    'org-babel-load-languages
    '( (perl . t)         
       (ruby . t)
+      (C . t)
       (plantuml . t)
       (ditaa . t)
       (sh . t)
@@ -192,83 +194,14 @@ before layers configuration."
 layers configuration."
 )
 
-(defun prelude-copy-file-name-to-clipboard ()
-  "Copy the current buffer file name to the clipboard."
-  (interactive)
-  (let ((filename (if (equal major-mode 'dired-mode)
-                      default-directory
-                    (buffer-file-name))))
-
-    ;; (let a (buffer-name))
-    ;; (message a)
-    (let ext (file-name-extension filename))
-    (message ext)
-    (when filename
-      (kill-new filename)
-      (message "Copied buffer file name '%s' to the clipboard." filename))))
-
 (desktop-save-mode 1)
 
-;; copy whole line without selection
-;; http://emacs-fu.blogspot.com.au/2009/11/copying-lines-without-selecting-them.html
-(defadvice kill-ring-save (before slick-copy activate compile) "When called
-  interactively with no active region, copy a single line instead."
-    (interactive (if mark-active (list (region-beginning) (region-end)) (message
-        "Copied line") (list (line-beginning-position) (line-beginning-position
-    2)))))
-
-(defadvice kill-region (before slick-cut activate compile)
-  "When called interactively with no active region, kill a single line instead."
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-     (list (line-beginning-position)
-           (line-beginning-position 2)))))
-
-(defun Open ()
-  "Show current file in desktop (OS's file manager).
-URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
-Version 2015-06-12"
-  (interactive)
-  (cond
-   ((string-equal system-type "windows-nt")
-    (w32-shell-execute "explore" (replace-regexp-in-string "/" "\\" default-directory t t)))
-   ((string-equal system-type "darwin") (shell-command "open ."))
-   ((string-equal system-type "gnu/linux")
-    (let ((process-connection-type nil)) (start-process "" nil "xdg-open" "."))
-    ;; (shell-command "xdg-open .") ;; 2013-02-10 this sometimes froze emacs till the folder is closed. ⁖ with nautilus
-    )))
-
-;; insert current time
-;; source: http://emacswiki.org/emacs/InsertingTodaysDate
-(defun nnow ()
-  (interactive)
-  (insert (format-time-string "%Y-%b-%d %H:%M:%S")))
-
-;; insert today date
-(defun ddate ()
-  (interactive)
-  (insert (format-time-string "%Y-%b-%d")))
-(require 'ido) ; part of emacs
-
-
-(load "~/dotspacemacs/hot-filelist")
-(defun xah-open-file-fast ()
-  "Prompt to open a file from `hot-filelist'.
-URL `http://ergoemacs.org/emacs/emacs_hotkey_open_file_fast.html'
-Version 2015-04-23"
-  (interactive)
-  (let ((ξabbrevCode
-         (ido-completing-read "Open:" (mapcar (lambda (ξx) (car ξx)) hot-filelist))))
-    (find-file (cdr (assoc ξabbrevCode hot-filelist)))))
-
-(load "~/dotspacemacs/keys.el")
 (load "~/dotspacemacs/abbrev")
 (load "~/dotspacemacs/shell_abbrev")
 (load "~/dotspacemacs/alias")
-(load "~/dotspacemacs/runCurrentFile")
-(load "~/dotspacemacs/functions")
 (load "~/dotspacemacs/windows")
-(load "~/dotspacemacs/switch-window.el")
+(load "~/dotspacemacs/org-journal.el")
+(setq org-journal-dir "~/myOrg/journal/")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
