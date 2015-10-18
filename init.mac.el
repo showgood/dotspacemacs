@@ -172,7 +172,7 @@ before layers configuration."
   (global-company-mode t)
   (setq org-src-fontify-natively t)
   (setq org-startup-with-inline-images t)
-  (setq org-agenda-files (list "~/myOrg/gtd/"))
+  (setq org-agenda-files (list "~/Dropbox/gtd/"))
 
   (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
   (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
@@ -201,7 +201,7 @@ layers configuration."
 (load "~/dotspacemacs/alias")
 (load "~/dotspacemacs/windows")
 (load "~/dotspacemacs/org-journal.el")
-(setq org-journal-dir "~/myOrg/journal/")
+(setq org-journal-dir "~/Dropbox/journalOrg/")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
