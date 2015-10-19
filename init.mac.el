@@ -173,12 +173,14 @@ before layers configuration."
   (setq org-src-fontify-natively t)
   (setq org-startup-with-inline-images t)
   (setq org-agenda-files (list "~/Dropbox/gtd/"))
+  (set-face-attribute 'default nil :font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+  (set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil t)
 
   (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
   (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '( (perl . t)         
+   '( (perl . t)
       (ruby . t)
       (C . t)
       (plantuml . t)
@@ -186,7 +188,7 @@ before layers configuration."
       (sh . t)
       (python . t)
       (dot . t)
-      (emacs-lisp . t)   
+      (emacs-lisp . t)
       ))
   ;; syntax highlight
   "Configuration function.
