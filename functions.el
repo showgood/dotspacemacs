@@ -80,3 +80,15 @@ Version 2015-04-23"
   (let ((ξabbrevCode
          (ido-completing-read "Open:" (mapcar (lambda (ξx) (car ξx)) hot-filelist))))
     (find-file (cdr (assoc ξabbrevCode hot-filelist)))))
+
+(defun close-all-buffers ()
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
+(defun org-pass-link-to-system (link)
+  (if (string-match "^[a-zA-Z0-9]+:" link)
+      (browse-url link)
+    nil)
+  )
+
+(add-hook 'org-open-link-functions 'org-pass-link-to-system)
