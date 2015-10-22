@@ -171,6 +171,7 @@ before layers configuration."
 (defun dotspacemacs/user-config ()
   (global-linum-mode t)
   (global-company-mode t)
+  (load "~/dotspacemacs/org.el")
   ;; syntax highlight
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after

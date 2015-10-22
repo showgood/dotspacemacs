@@ -1,11 +1,3 @@
-(setq org-src-fontify-natively t)
-(setq org-startup-with-inline-images t)
-(setq org-agenda-files (list "~/Dropbox/org/gtd/"))
-(load "~/dotspacemacs/org-journal.el")
-(setq org-journal-dir "~/Dropbox/org/journalOrg/")
-(setq org-directory "~/Dropbox/org")
-(setq org-default-notes-file "~/Dropbox/org/Inbox.org")
-
 (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
 (org-babel-do-load-languages
@@ -33,10 +25,21 @@
                "* TODO Review %c\n%U\n" :immediate-finish t)
               ("m" "Meeting" entry (file "~/Dropbox/org/Inbox.org")
                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+              ("a" "Appointment" entry (file "~/Dropbox/org/Inbox.org")
+               "* Appointment with %? :APPOINTMENT:\n%U" :clock-in t :clock-resume t)
               ("p" "Phone call" entry (file "~/Dropbox/org/Inbox.org")
                "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
               ("h" "Habit" entry (file "~/Dropbox/org/Inbox.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
                                         ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
+
+(setq org-src-fontify-natively t)
+(setq org-startup-with-inline-images t)
+(setq org-agenda-files (list "~/Dropbox/org/gtd/"))
+(load "~/dotspacemacs/org-journal.el")
+(setq org-journal-dir "~/Dropbox/org/journalOrg/")
+(setq org-directory "~/Dropbox/org")
+(setq org-default-notes-file "~/Dropbox/org/Inbox.org")
