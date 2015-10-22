@@ -1,12 +1,14 @@
 (setq org-src-fontify-natively t)
 (setq org-startup-with-inline-images t)
-(setq org-agenda-files (list "~/Dropbox/org/gtd/"))
+(setq org-agenda-files (quote ("~/Dropbox/org/gtd/"
+                               "~/myOrg/javascript/js.org")))
 (load "~/dotspacemacs/org-journal.el")
 (setq org-journal-dir "~/Dropbox/org/journalOrg/")
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/Inbox.org")
 (setq org-mobile-directory "~/Dropbox/Apps/mobileorg")
 (setq org-mobile-inbox-for-pull "~/Dropbox/org/fromMobile.org")
+(setq org-archive-location "~/Dropbox/org/logbook.org::* Archived")
 
 (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")

@@ -18,3 +18,4 @@
 (defalias 'inbox 'open-my-inbox)
 (defalias 'todo 'open-my-todo-list)
 (defalias 'keys 'my-key-binds)
+(defalias 'note 'open-notes-dir)

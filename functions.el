@@ -109,3 +109,8 @@ Version 2015-04-23"
   (interactive)
   (find-file "~/dotspacemacs/keys.el")
   )
+
+(defun open-notes-dir()
+  (interactive)
+  (find-file "~/myOrg")
+  )
