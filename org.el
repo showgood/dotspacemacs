@@ -5,6 +5,8 @@
 (setq org-journal-dir "~/Dropbox/org/journalOrg/")
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/Inbox.org")
+(setq org-mobile-directory "~/Dropbox/Apps/mobileorg")
+(setq org-mobile-inbox-for-pull "~/Dropbox/org/fromMobile.org")
 
 (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
