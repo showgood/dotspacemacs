@@ -8,10 +8,15 @@
 
     ;; email
     ("gm" "showgood21@gmail.com")
+
+    ;; my own
     ("atm" "at the moment")
+    ("stmt" "statement")
+    ("sb" "somebody")
+    ("sth" "something")
 
     ;; coding
-    ("ustd", "using namespace std;")
+    ("ustd" "using namespace std;")
 
     ;; computing tech
     ("8wp" "Wikipedia")

@@ -85,6 +85,8 @@ Version 2015-04-23"
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
+
+; support open link for evernote or outlook etc
 (defun org-pass-link-to-system (link)
   (if (string-match "^[a-zA-Z0-9]+:" link)
       (browse-url link)
@@ -92,3 +94,18 @@ Version 2015-04-23"
   )
 
 (add-hook 'org-open-link-functions 'org-pass-link-to-system)
+
+(defun open-my-inbox()
+  (interactive)
+  (find-file "~/Dropbox/org/Inbox.org")
+  )
+
+(defun open-my-todo-list()
+  (interactive)
+  (find-file "~/Dropbox/org/gtd/todo.org")
+  )
+
+(defun my-key-binds()
+  (interactive)
+  (find-file "~/dotspacemacs/keys.el")
+  )
