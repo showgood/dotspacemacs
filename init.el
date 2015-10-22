@@ -13,4 +13,3 @@
 (load "~/dotspacemacs/runCurrentFile")
 (load "~/dotspacemacs/functions")
 (load "~/dotspacemacs/switch-window.el")
-(load "~/dotspacemacs/org.el")

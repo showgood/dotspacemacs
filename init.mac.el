@@ -170,26 +170,10 @@ before layers configuration."
 (defun dotspacemacs/user-config ()
   (global-linum-mode t)
   (global-company-mode t)
-  (setq org-src-fontify-natively t)
-  (setq org-startup-with-inline-images t)
-  (setq org-agenda-files (list "~/Dropbox/gtd/"))
+  (load "~/dotspacemacs/org.el")
   (set-face-attribute 'default nil :font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
   (set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil t)
 
-  (setq org-ditaa-jar-path "~/soft/ditaa0_9.jar")
-  (setq org-plantuml-jar-path "~/soft/plantuml.8031.jar")
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '( (perl . t)
-      (ruby . t)
-      (C . t)
-      (plantuml . t)
-      (ditaa . t)
-      (sh . t)
-      (python . t)
-      (dot . t)
-      (emacs-lisp . t)
-      ))
   ;; syntax highlight
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
@@ -201,9 +185,7 @@ layers configuration."
 (load "~/dotspacemacs/abbrev")
 (load "~/dotspacemacs/shell_abbrev")
 (load "~/dotspacemacs/alias")
-(load "~/dotspacemacs/windows")
 (load "~/dotspacemacs/org-journal.el")
-(setq org-journal-dir "~/Dropbox/journalOrg/")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
