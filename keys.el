@@ -13,3 +13,4 @@
 (global-set-key (kbd "\C-cc") 'org-capture)
 (global-set-key (kbd "\C-co") 'evil-replace-word-selection)
 (global-set-key (kbd "<f12>") 'org-refile)
+(global-set-key (kbd "\C-cl") 'org-store-link)
