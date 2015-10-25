@@ -13,3 +13,8 @@
 (load "~/dotspacemacs/runCurrentFile")
 (load "~/dotspacemacs/functions")
 (load "~/dotspacemacs/switch-window.el")
+(load "~/dotspacemacs/keyfreq.el")
+
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)

@@ -15,3 +15,5 @@
 (global-set-key (kbd "<f12>") 'org-refile)
 (global-set-key (kbd "\C-cl") 'org-store-link)
 (global-set-key (kbd "\C-cr") 'org-refile)
+;; (global-set-key (kbd "Q") 'fill-paragraph) bad idea.. can't enter Q anymore
+(global-set-key (kbd "\C-cj") 'org-journal-new-entry)
