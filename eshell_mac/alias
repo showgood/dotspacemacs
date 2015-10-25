@@ -1,0 +1,4 @@
+alias gst git status $1
+alias gcmsg git commit -m $1
+alias ga git add $1
+alias ff find-file $1

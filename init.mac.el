@@ -29,6 +29,7 @@
      ;; better-defaults
      emacs-lisp
      git
+     search-engine
      ;; markdown
      ;; org
      ;; (shell :variables
@@ -49,7 +50,7 @@
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages nil))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -173,6 +174,7 @@ before layers configuration."
   (load "~/dotspacemacs/org.el")
   (set-face-attribute 'default nil :font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
   (set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil t)
+  (load "~/dotspacemacs/eshell.mac.el")
 
   ;; syntax highlight
   "Configuration function.
