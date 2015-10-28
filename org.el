@@ -1,6 +1,7 @@
 (setq org-src-fontify-natively t)
 (setq org-startup-with-inline-images t)
 (setq org-agenda-files (quote ("~/Dropbox/org/gtd/"
+                               "~/Dropbox/org/Inbox.org"
                                "~/myOrg/javascript/js.org")))
 (load "~/dotspacemacs/org-journal.el")
 (setq org-journal-dir "~/Dropbox/org/journalOrg/")
@@ -26,7 +27,7 @@
 
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/Dropbox/org/Inbox.org")
-               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+               "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\n" :clock-in t :clock-resume t)
               ("r" "respond" entry (file "~/Dropbox/org/Inbox.org")
                "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
               ("n" "note" entry (file "~/Dropbox/org/Inbox.org")
