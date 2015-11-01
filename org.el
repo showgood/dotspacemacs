@@ -2,6 +2,8 @@
 (setq org-startup-with-inline-images t)
 (setq org-agenda-files (quote ("~/Dropbox/org/gtd/"
                                "~/Dropbox/org/Inbox.org"
+                               "~/Dropbox/org/birthday.org"
+                               "~/codingOrg/Leetcode/index.org"
                                "~/myOrg/javascript/js.org")))
 (load "~/dotspacemacs/org-journal.el")
 (setq org-journal-dir "~/Dropbox/org/journalOrg/")
@@ -53,3 +55,19 @@
 (defun my-org-confirm-babel-evaluate (lang body)
   (not (string= lang "ditaa")))  ; don't ask for ditaa
 (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+;; http://dept.stat.lsa.umich.edu/~jerrick/org_agenda_calendar.html
+(add-hook 'org-finalize-agenda-hook
+          (lambda ()
+            (save-excursion
+              (color-org-header "Personal:"  "green")
+              (color-org-header "Birthdays:" "gold")
+              (color-org-header "Holidays:" "chocolate"))))
+
+(defun color-org-header (tag col)
+  ""
+  (interactive)
+  (goto-char (point-min))
+  (while (re-search-forward tag nil t)
+    (add-text-properties (match-beginning 0) (point-at-eol)
+                         `(face (:foreground ,col)))))

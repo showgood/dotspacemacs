@@ -31,7 +31,7 @@
      git
      search-engine
      ;; markdown
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -187,7 +187,7 @@ layers configuration."
 (load "~/dotspacemacs/abbrev")
 (load "~/dotspacemacs/shell_abbrev")
 (load "~/dotspacemacs/alias")
-(load "~/dotspacemacs/org-journal.el")
+;; (load "~/dotspacemacs/org-journal.el")
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables

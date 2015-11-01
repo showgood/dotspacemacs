@@ -15,6 +15,9 @@
 (load "~/dotspacemacs/switch-window.el")
 (load "~/dotspacemacs/keyfreq.el")
 
+;(load "~/dotspacemacs/org.el")
 (require 'keyfreq)
 (keyfreq-mode 1)
 (keyfreq-autosave-mode 1)
+(setq ediff-custom-diff-options "-c -w")
+(setq gnus-use-cache t)
