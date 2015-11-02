@@ -57,12 +57,12 @@
 (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
 
 ;; http://dept.stat.lsa.umich.edu/~jerrick/org_agenda_calendar.html
-(add-hook 'org-finalize-agenda-hook
-          (lambda ()
-            (save-excursion
-              (color-org-header "Personal:"  "green")
-              (color-org-header "Birthdays:" "gold")
-              (color-org-header "Holidays:" "chocolate"))))
+;; (add-hook 'org-finalize-agenda-hook
+;;           (lambda ()
+;;             (save-excursion
+;;               (color-org-header "Personal:"  "green")
+;;               (color-org-header "Birthdays:" "gold")
+;;               (color-org-header "Holidays:" "chocolate"))))
 
 (defun color-org-header (tag col)
   ""

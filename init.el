@@ -21,3 +21,6 @@
 (keyfreq-autosave-mode 1)
 (setq ediff-custom-diff-options "-c -w")
 (setq gnus-use-cache t)
+(diary)
+
+(load "~/dotspacemacs/myCal.el")
