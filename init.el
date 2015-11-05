@@ -24,3 +24,10 @@
 (diary)
 
 (load "~/dotspacemacs/myCal.el")
+
+(load "~/dotspacemacs/emacs-calfw/calfw.el")
+(load "~/dotspacemacs/emacs-calfw/calfw-cal.el")
+(load "~/dotspacemacs/emacs-calfw/calfw-org.el")
+(require 'calfw)
+(require 'calfw-cal)
+(require 'calfw-org)
